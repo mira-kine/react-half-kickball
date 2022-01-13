@@ -9,10 +9,10 @@ exports[`should render a team’s detail page 1`] = `
   </a>
    » 
   <span>
-    Rip City Kickers
+    Bridge City Sneakers
   </span>
   <h1>
-    Rip City Kickers
+    Bridge City Sneakers
   </h1>
   <p>
     Portland
@@ -21,7 +21,7 @@ exports[`should render a team’s detail page 1`] = `
   </p>
   <p>
     <a
-      href="/teams/1/edit"
+      href="/teams/2/edit"
     >
       Edit Team
     </a>
