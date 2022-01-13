@@ -1,24 +1,22 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import Loading from '../../components/loading/Loading';
 import { getTeamById } from '../../services/teams';
 
-function Team({
-  match: {
-    params: { id },
-  },
-}) {
+function Team() {
   const [team, setTeam] = useState({});
   const [loading, setLoading] = useState(true);
+  const params = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const resp = await getTeamById(id);
+      const resp = await getTeamById(params.id);
       setTeam(resp);
       setLoading(false);
     };
     fetchData();
-  }, [id]);
+  }, [params.id]);
 
   return loading ? (
     <Loading />
@@ -30,7 +28,7 @@ function Team({
         {team.city}, {team.state}
       </p>
       <p>
-        <Link to={`/teams/${id}/edit`}>Edit Team</Link>
+        <Link to={`/teams/${params.id}/edit`}>Edit Team</Link>
       </p>
     </>
   );
